@@ -5,7 +5,7 @@
 @section('content')
 
     {{-- hero section  --}}
-       <div class="relative h-screen w-full flex items-center justify-center bg-black">
+    <div class="relative h-screen w-full flex items-center justify-center bg-black">
         {{-- Background Image (Optional, based on your previous hero styles) --}}
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-black/50 z-10"></div>
@@ -21,7 +21,7 @@
     </div>
 
     {{-- our services  --}}
-    <section class="py-20 bg-[#FFFFFF]">
+    <section class="py-20 bg-[#F9FAFB]">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="text-center mb-16">
                 <h2 class="text-[#0A81CB] text-3xl md:text-5xl font-bold tracking-tight">
@@ -29,7 +29,7 @@
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 bg-[#F9FAFB] p-6 lg:p-10 rounded-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10  p-6 lg:p-10 rounded-2xl">
                 @php
                     $services = [
                         [
@@ -88,37 +88,37 @@
     </section>
 
     {{-- our deliverables  --}}
-<section class="relative bg-[#0A81CB] mt-32 lg:mt-48 mb-20">
-    <div class="container mx-auto w-[80%] px-6 lg:px-12 flex items-center min-h-[400px] lg:min-h-[500px]">
-        <div class="hidden lg:block absolute left-0 bottom-0 w-[80%] mx-auto z-10">
+<section class="relative bg-[#0A81CB] w-full min-h-[400px] lg:min-h-[500px] flex items-center">
+    
+    <div class="container mx-auto px-6 lg:px-12 relative h-full flex items-center">
+        
+        <div class="hidden lg:block absolute left-0 bottom-0 z-20">
             <img src="{{ asset('images/services/deliver.png') }}" 
                  alt="Professional Executive" 
-                 class="w-auto scale-95 origin-bottom transform translate-y-[10%]">
+                 class="h-[75vh] w-auto object-contain origin-bottom md:ml-48 transform translate-y-8 xl:translate-x-0">
         </div>
 
-        <div class="container mx-auto px-6 lg:px-12 flex justify-end items-center min-h-[500px]">
-            
-            <div class="w-full lg:w-1/2 text-[#FFFFFF] py-16 lg:py-0 z-20 text-left lg:text-left">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8">
-                    Our Deliverables are <br>
-                    <strong class="text-[#8b1515]">Driven</strong> on Excellence, <br>
-                    Integrity, Professionalism, <br>
-                    Accountability
-                </h2>
-                
-                <p class="text-lg opacity-90 leading-relaxed max-w-xl mt-6">
-                    Today Businesses are Driven by Ict Solutions, Spectech Africa is one of Nigeria’s solution provider with the Primary Goal of Providing Integrated ICT Solutions that Drive Business Operations with the Implementation.
-                </p>
-            </div>
-
+        <div class="w-full lg:w-3/5 ml-auto text-white z-20 py-12">
+            <h2 class="font-reem text-3xl lg:text-5xl font-bold leading-tight mb-6">
+                Our Deliverables are <br>
+                <span class="text-[#D12B2B]">Driven</span> on Excellence, <br>
+                Integrity, Professionalism, <br>
+                Accountability
+            </h2>
+            <p class="text-sm lg:text-base opacity-90 leading-relaxed max-w-xl">
+                Today Businesses are Driven by Ict Solutions, Spectech Africa is one of 
+                Nigeria's solution provider with the Primary Goal of Providing 
+                Integrated ICT Solutions that Drive Business Operations with the Implementation.
+            </p>
         </div>
+        
     </div>
 </section>
 
     <section class="py-16 bg-[#FFFFFF]">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="text-center mb-12">
-                <h2 class="text-[#0A81CB] text-3xl md:text-5xl font-bold tracking-tight">
+                <h2 class="text-[#0A81CB] font-reem  text-3xl md:text-5xl font-bold tracking-tight">
                     We Also Provide the Following Solutions
                 </h2>
             </div>

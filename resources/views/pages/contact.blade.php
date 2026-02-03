@@ -39,7 +39,7 @@
                     <div class="space-y-10">
                         <div class="flex items-start gap-6">
                             <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">
-                                <img src="{{ asset('images/icons/location-white.png') }}" class="w-6 h-6" alt="Location">
+                                <img src="{{ asset('images/contact/location.png') }}" class="w-12 h-auto" alt="Location">
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-[#334155]">Enugu Office</h3>
@@ -49,7 +49,7 @@
 
                         <div class="flex items-start gap-6">
                             <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">
-                                <img src="{{ asset('images/icons/email-white.png') }}" class="w-6 h-6" alt="Email">
+                                <img src="{{ asset('images/contact/email.png') }}" class="w-12 h-auto" alt="Email">
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-[#334155]">Email us</h3>
@@ -59,7 +59,7 @@
 
                         <div class="flex items-start gap-6">
                             <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">
-                                <img src="{{ asset('images/icons/phone-white.png') }}" class="w-6 h-6" alt="Phone">
+                                <img src="{{ asset('images/contact/call.png') }}" class="w-12 h-auto" alt="Phone">
                             </div>
                             <div>
                                 <h3 class="text-xl font-bold text-[#334155]">Call us</h3>
@@ -72,10 +72,10 @@
                     <div class="mt-16 pt-8 border-t border-gray-200">
                         <h4 class="text-xl font-bold text-[#334155] mb-6">Follow Our Social Media</h4>
                         <div class="flex gap-5">
-                            <a href="#"><img src="{{ asset('images/icons/linkedin-blue.png') }}" class="w-8 h-8" alt="LinkedIn"></a>
-                            <a href="#"><img src="{{ asset('images/icons/x-blue.png') }}" class="w-7 h-7 mt-0.5" alt="X"></a>
-                            <a href="#"><img src="{{ asset('images/icons/facebook-blue.png') }}" class="w-8 h-8" alt="Facebook"></a>
-                            <a href="#"><img src="{{ asset('images/icons/instagram-blue.png') }}" class="w-8 h-8" alt="Instagram"></a>
+                            <a href="#"><img src="{{ asset('images/contact/linkedinblue.png') }}" class="w-8 h-8" alt="LinkedIn"></a>
+                            <a href="#"><img src="{{ asset('images/contact/xblue.png') }}" class="w-7 h-7 mt-0.5" alt="X"></a>
+                            <a href="#"><img src="{{ asset('images/contact/facebookblue.png') }}" class="w-8 h-8" alt="Facebook"></a>
+                            <a href="#"><img src="{{ asset('images/socials/instagram.png') }}" class="w-8 h-8" alt="Instagram"></a>
                         </div>
                     </div>
                 </div>

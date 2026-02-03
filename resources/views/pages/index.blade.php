@@ -34,7 +34,7 @@
         ];
     @endphp
 
-    {{-- Main Wrapper: Holds data for Sidebar and Slider --}}
+    {{-- Main Wrapper --}}
     <section x-data="{ 
             isMenuOpen: false,
             activeSlide: 0, 
@@ -75,7 +75,7 @@
         x-init="startTimer()"
         class="relative w-full overflow-x-hidden">
 
-        {{-- 1. Call the Navbar Component --}}
+        {{--Navbar Component --}}
         <x-navbar />
 
         {{-- 2. Hero Slider Section --}}

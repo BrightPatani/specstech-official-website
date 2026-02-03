@@ -2,7 +2,16 @@
 
 @section('title', 'About Us')
 
+@section('body-class', 'home-page')
+
+@push('extra-styles')
+    @vite(['resources/css/index.css'])
+@endpush
+
+
 @section('content')
+    
+
     <div class="relative h-screen w-full flex items-center justify-center bg-black">
         {{-- Background Image (Optional, based on your previous hero styles) --}}
         <div class="absolute inset-0">
@@ -55,7 +64,7 @@
             <div class="space-y-8">
                 
                 <div class="bg-[#FFFFFF] rounded-2xl border border-blue-100 p-8 lg:p-12 shadow-[0_10px_30px_rgba(0,0,0,0.02)] transition-all hover:shadow-[0_15px_40px_rgba(10,129,203,0.05)]">
-                    <h2 class="text-[#0A81CB] text-3xl lg:text-5xl font-bold mb-6">
+                    <h2 class="text-[#0A81CB] font-reem text-3xl lg:text-5xl font-bold mb-6">
                         Our Vision
                     </h2>
                     <p class="text-gray-700 text-lg lg:text-xl leading-relaxed">
