@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -20,13 +21,14 @@ class ContactController extends Controller
             'message' => 'required|string|max:2000',
         ]);
 
-        $to = config('mail.from.address', 'info@specstechafrica.com');
-
-        $body = "New contact message:\n\n" .
-            "Name: {$data['name']}\n" .
+        // Save the information to database
+        ContactMessage::create($data);
+        
+        $body = "Name: {$data['name']}\n" .
             "Email: {$data['email']}\n\n" .
             "Message:\n" . $data['message'];
 
+        $to = 'your-email@example.com';
         Mail::raw($body, function ($message) use ($to) {
             $message->to($to)
                 ->subject('Website Contact Message');

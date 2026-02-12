@@ -1,9 +1,9 @@
-<section class="bg-white py-12 overflow-hidden">
+<section class="bg-[#FFFFFF] py-8 overflow-hidden">
         <div class="container mx-auto px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-8">
                 
-                <div class="whitespace-nowrap z-10 bg-white pr-8">
-                    <p class="text-[#0A81CB] text-lg lg:text-xl font-bold">
+                <div class="whitespace-nowrap z-10 bg-[#FFFFFF] pr-8">
+                    <p class="text-[#0A81CB] text-lg lg:text-xl">
                         We're trusted by
                     </p>
                 </div>
@@ -31,9 +31,8 @@
                         class="flex items-center gap-12 lg:gap-20 w-max"
                     >
                         @php
-                            // List your partner logos here (matching image_79c6df.png)
                             $logos = ['specstech.png', 'zallasoft.png', 'elabsafrica.png', 'jtech.png'];
-                            // Duplicate for seamless looping
+                            // Duplicate here for the purpose of scrolling
                             $displayLogos = array_merge($logos, $logos);
                         @endphp
 
@@ -48,7 +47,6 @@
                         @endforeach
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

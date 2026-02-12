@@ -11,7 +11,7 @@
     <div class="relative h-[70vh] w-full flex items-center justify-center bg-black">
         {{-- Background Image --}}
         <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-black/50  z-10"></div>
+            <div class="absolute inset-0 bg-[#000000]/50  z-10"></div>
             <img src="{{ asset('images/feedback/feedbackhero.png') }}" class="h-full w-full object-cover" alt="About Us Background">
         </div>
 
@@ -22,9 +22,6 @@
             </h1>
         </div>
     </div> 
-
-    {{-- partners  --}}
-    <x-partner />
 
     {{-- feedback form  --}}
     <section class="feedback-section py-16 md:py-24 bg-white">
@@ -120,7 +117,7 @@
             // 1. Entrance Timeline
             const feedbackTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: ".feedback-section", // Add this class to your main <section>
+                    trigger: ".feedback-section", 
                     start: "top 85%",
                     toggleActions: "play none none none"
                 }
@@ -154,7 +151,7 @@
                     gsap.to(input, { 
                         scale: 1.01, 
                         duration: 0.3, 
-                        borderLeft: "4px solid #0A81CB", // Adds a blue accent on focus
+                        borderLeft: "4px solid #0A81CB", 
                         ease: "power2.out" 
                     });
                 });
@@ -163,7 +160,7 @@
                     gsap.to(input, { 
                         scale: 1, 
                         duration: 0.3, 
-                        borderLeft: "1px solid #e5e7eb", // Resets to original gray
+                        borderLeft: "1px solid #e5e7eb", 
                         ease: "power2.in" 
                     });
                 });

@@ -46,32 +46,32 @@ html, body {
 
 h1 {
     font-family: "Reem Kufi Ink", sans-serif;
-    font-weight: normal;
+    font-weight: 700;
     font-size: 2.5rem;
 };
 
 h2 {
     font-family: "Reem Kufi Ink", sans-serif;
-    font-weight: normal;
+    font-weight: 700;
     font-size: 2.2rem;
 };
 
 h3 {
     font-family: "Reem Kufi Ink", sans-serif;
-    font-weight: normal;
+    font-weight: 700;
     font-size: 1.5rem;
 };
 
 
 p {
     font-family: "poppins", sans-serif;
-    font-weight: normal;
+    font-weight: 500;
     font-size: 1.1rem;
 }
 
 a {
     font-family: "poppins", sans-serif;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 0.9rem;
 }
 @media (min-width: 1536px) {

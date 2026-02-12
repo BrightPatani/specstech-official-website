@@ -12,10 +12,10 @@
 @section('content')
     
 
-    <div class="relative h-[70vh] w-full flex items-center justify-center bg-black">
+    <div class="relative h-[85vh] w-full flex items-center justify-center bg-black">
         {{-- Background Image (Optional, based on your previous hero styles) --}}
         <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <div class="absolute inset-0 bg-[#000000]/50 z-10"></div>
             <img src="{{ asset('images/about/abouthero.png') }}" class="h-full w-full object-cover" alt="About Us Background">
         </div>
 
@@ -27,6 +27,8 @@
         </div>
     </div>
 
+    {{-- partners  --}}
+    <x-partner />
     {{-- who we are  --}}
     <section class="who-we-are-section py-16 lg:py-24 bg-[#FFFFFF] overflow-hidden">
         <div class="container mx-auto px-6 lg:px-8">
@@ -157,7 +159,7 @@
                 const whoWeAreTl = gsap.timeline({
                     scrollTrigger: {
                         trigger: ".who-we-are-section",
-                        start: "top 75%", // Triggers when the section is 75% from the top
+                        start: "top 75%", 
                         toggleActions: "play none none none"
                     }
                 });
@@ -176,7 +178,7 @@
                         opacity: 0,
                         duration: 1.2,
                         ease: "power4.out"
-                    }, "-=1") // Overlaps with the image animation
+                    }, "-=1") 
                     // 3. The Content Inside: Subtle fade and lift
                     .from(".about-content > *", {
                         y: 20,
@@ -194,7 +196,7 @@
                             end: "bottom top",
                             scrub: true
                         },
-                        y: -50, // Image moves slower than the scroll
+                        y: -50, 
                         ease: "none"
                     });
 
@@ -203,7 +205,7 @@
                     const missionVisionTl = gsap.timeline({
                         scrollTrigger: {
                             trigger: ".mission-section",
-                            start: "top 80%", // Triggers when the top of the section hits 80% of viewport height
+                            start: "top 80%", 
                             toggleActions: "play none none none"
                         }
                     });
@@ -214,7 +216,7 @@
                             y: 50,
                             opacity: 0,
                             duration: 1,
-                            stagger: 0.3, // 0.3s delay between the first and second card
+                            stagger: 0.3, 
                             ease: "power3.out"
                         })
                         // 2. Animate the text inside the cards slightly after they appear
@@ -224,7 +226,7 @@
                             duration: 0.6,
                             stagger: 0.1,
                             ease: "power2.out"
-                        }, "-=0.5") // Starts halfway through the card animation
+                        }, "-=0.5") 
                 });
     </script>
 @endsection

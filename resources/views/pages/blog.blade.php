@@ -82,7 +82,7 @@
             const blogTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".blog-section",
-                    start: "top 75%", // Start slightly earlier for smoother feel
+                    start: "top 75%", 
                     toggleActions: "play none none reverse"
                 }
             });
@@ -93,23 +93,23 @@
                 opacity: 0,
                 duration: 0.5, 
                 stagger: 0.15,
-                ease: "power2.out" // Smoother ease curve
+                ease: "power2.out" 
             })
             
             // Animate Blog Cards with butter-smooth entrance
             .from(".blog-card", {
-                y: 80, // Larger distance for more dramatic but smooth effect
+                y: 80, 
                 opacity: 0,
-                scale: 0.9, // Slightly more scale difference
-                duration: 0.7, // Longer duration = smoother
+                scale: 0.9, 
+                duration: 0.7, 
                 stagger: {
-                    each: 0.1, // Slightly more time between cards
+                    each: 0.1, 
                     from: "start",
-                    ease: "power2.inOut" // Smooth stagger timing
+                    ease: "power2.inOut" 
                 },
-                ease: "power2.out", // Best ease for smooth deceleration
+                ease: "power2.out", 
                 clearProps: "all"
-            }, "-=0.6"); // More overlap with header animation
+            }, "-=0.6"); 
 
             // Smoother Parallax Effect
             gsap.utils.toArray(".blog-card img").forEach(img => {
@@ -118,9 +118,9 @@
                         trigger: img,
                         start: "top bottom",
                         end: "bottom top",
-                        scrub: 1, // Increased from 1.5 for smoother motion
+                        scrub: 1, 
                     },
-                    y: -40, // Slightly more movement
+                    y: -40, 
                     ease: "none"
                 });
             });

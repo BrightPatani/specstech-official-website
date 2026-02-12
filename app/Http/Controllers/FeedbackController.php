@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -23,10 +24,11 @@ class FeedbackController extends Controller
             'feedback' => 'nullable|string|max:2000',
         ]);
 
-        $to = config('mail.from.address', 'info@specstechafrica.com');
-
-        $body = "New feedback received:\n\n" .
-            "Name: {$data['full_name']}\n" .
+        // Save to database
+        Feedback::create($data);
+        
+        $to = 'your-email@example.com';
+        $body = "Name: {$data['full_name']}\n" .
             "Phone: {$data['phone']}\n" .
             "Email: {$data['email']}\n" .
             "Position: " . ($data['position'] ?? '-') . "\n" .
