@@ -8,7 +8,7 @@
 
 @section('content')
     {{-- hero section  --}}
-    <div class="relative h-screen w-full flex items-center justify-center bg-black">
+    <div class="relative h-[70vh] w-full flex items-center justify-center bg-black">
         {{-- Background Image --}}
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-black/50  z-10"></div>
@@ -17,7 +17,7 @@
 
         {{-- Centered Text Content --}}
         <div class="relative z-20 space-y-6 text-[#FFFFFF] text-center animate-fade-in-up px-6">
-            <h1 class="text-[2.25rem] md:text-[3.5rem] lg:text-[5.5rem] font-bold leading-tight max-w-[60rem] mx-auto">
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-bold leading-tight max-w-[60rem] mx-auto">
                 Review Page
             </h1>
         </div>
@@ -27,17 +27,22 @@
     <x-partner />
 
     {{-- feedback form  --}}
-    <section class="py-16 md:py-24 bg-white">
+    <section class="feedback-section py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6 max-w-3xl">
             {{-- Section Header --}}
-            <div class="text-center mb-12">
-                <h2 class="text-[#0A81CB] text-4xl md:text-5xl font-bold mb-4">Form</h2>
-                <p class="text-gray-700 text-lg">Send us a Feedback about our Service to your Organization</p>
+            <div class="feedback-header text-center mb-12">
+                <h2 class="text-[#0A81CB] text-lg md:text-xl font-bold mb-4">Form</h2>
+                <p class="text-gray-700 text-xs">Send us a Feedback about our Service to your Organization</p>
             </div>
 
             {{-- Feedback Form --}}
-            <form action="#" method="POST" class="space-y-6">
+            <form action="{{ route('feedback.store') }}" method="POST" class="space-y-6">
                 @csrf
+                @if(session('status'))
+                    <div class="p-4 bg-green-50 border border-green-200 text-green-700 rounded">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 
                 {{-- Full Name --}}
                 <div class="space-y-2">
@@ -95,7 +100,7 @@
                 {{-- Submit Button --}}
                 <div class="pt-4">
                     <button type="submit" 
-                        class="w-full bg-[#0A81CB] text-white font-bold py-4 rounded-md shadow-md hover:bg-[#086ba8] transition-all transform active:scale-[0.99]">
+                        class="w-full bg-linear-to-r from-[#0A81CB] via-[#37A2E5] to-[#0A8ACB] hover:bg-linear-to-r hover:from-[#37A2E5] hover:via-[#0A81CB] hover:to-[#37A2E5] text-white font-bold py-4 rounded-md shadow-md transition-all transform active:scale-[0.99]">
                         Send
                     </button>
                 </div>
@@ -108,4 +113,61 @@
 
     {{-- footer  --}}   
     <x-footer />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+            // 1. Entrance Timeline
+            const feedbackTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".feedback-section", // Add this class to your main <section>
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+            // Animate Header (Title & Subtitle)
+            feedbackTl.from(".feedback-header > *", {
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
+
+            // Animate Form Rows (The 'Cascading' effect)
+            // We target the parent divs of the labels and inputs
+            feedbackTl.from("form > div", {
+                x: -20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "power1.out"
+            }, "-=0.4");
+
+            // 2. Interactive Input Focus (The "Tech" Feel)
+            // This makes the border and scale react when the user types
+            const formInputs = document.querySelectorAll('input, select, textarea');
+            
+            formInputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    gsap.to(input, { 
+                        scale: 1.01, 
+                        duration: 0.3, 
+                        borderLeft: "4px solid #0A81CB", // Adds a blue accent on focus
+                        ease: "power2.out" 
+                    });
+                });
+                
+                input.addEventListener('blur', () => {
+                    gsap.to(input, { 
+                        scale: 1, 
+                        duration: 0.3, 
+                        borderLeft: "1px solid #e5e7eb", // Resets to original gray
+                        ease: "power2.in" 
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

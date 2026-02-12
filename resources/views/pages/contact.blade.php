@@ -4,19 +4,19 @@
 
 @section('content')
     {{-- Hero Section --}}
-    <section class="relative h-[70vh] md:h-[65vh] w-full flex items-center justify-center -z-10 bg-[#111827] overflow-hidden">
+    <section class="relative h-[75vh] w-full flex items-center justify-center -z-10 bg-[#111827] overflow-hidden">
      
     {{-- hero section  --}}
-       <div class="relative h-screen w-full flex items-center justify-center bg-black">
+       <div class="relative h-screen w-full flex items-center justify-center bg-[#111827]">
         {{-- Background Image (Optional, based on your previous hero styles) --}}
         <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-black/50 z-10"></div>
-            <img src="{{ asset('images/contact/contacthero.png') }}" class="h-full w-full object-cover" alt="About Us Background">
+            <div class="absolute inset-0 bg-[#111827]/50 z-10"></div>
+            <img src="{{ asset('images/contact/contacthero.png') }}" class="h-full w-full " alt="About Us Background">
         </div>
 
         {{-- Centered Text Content --}}
         <div class="relative z-20 space-y-6 text-[#FFFFFF] text-center animate-fade-in-up px-6">
-            <h1 class="text-[2.25rem] md:text-[3.5rem] lg:text-[5.5rem] font-bold leading-tight max-w-[60rem] mx-auto">
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-bold leading-tight max-w-[60rem] mx-auto">
                 Contact Us
             </h1>
         </div>
@@ -24,31 +24,32 @@
     </section>
 
     {{-- Contact Form Section --}}
+
     <section class="relative z-40 pb-40 bg-gray-50">
-        <div class="container mx-auto px-6 max-w-6xl -mt-24 md:-mt-44"> {{-- Pulls the form up to overlap the hero --}}
+        <div class="contact-card container mx-auto px-6 max-w-6xl -mt-24 md:-mt-44"> 
             
-            <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)] flex flex-col lg:flex-row">
+            <div class="bg-[#FFFFFF] rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)] flex flex-col lg:flex-row">
                 
                 {{-- Left Side: Contact Information --}}
                 <div class="w-full lg:w-[45%] bg-[#F8FAFC] p-8 lg:p-16">
                     <div class="mb-12">
-                        <h2 class="text-[#334155] text-4xl font-bold mb-4">Get in touch</h2>
-                        <p class="text-gray-500 text-lg">Lets Start a Project Together</p>
+                        <h2 class="text-[#334155] text-lg font-bold mb-4">Get in touch</h2>
+                        <p class="text-gray-500 text-xs">Lets Start a Project Together</p>
                     </div>
 
                     <div class="space-y-10">
-                        <div class="flex items-start gap-6">
-                            <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">
+                        <div class="info-item flex items-start gap-6">
+                            <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-[#0A81CB]/50">
                                 <img src="{{ asset('images/contact/location.png') }}" class="w-12 h-auto" alt="Location">
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-[#334155]">Enugu Office</h3>
-                                <p class="text-gray-600 leading-relaxed">54 Okpara Avenue Enugu,<br>Enugu State.</p>
+                                <h3 class="text-xs font-bold text-[#334155]">Enugu Office</h3>
+                                <p class="text-[#334155]/70 leading-relaxed text-xs">54 Okpara Avenue Enugu,<br>Enugu State.</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-6">
-                            <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">
+                        <div class="info-item flex items-start gap-6">
+                            <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-[#0A81CB]/50">
                                 <img src="{{ asset('images/contact/email.png') }}" class="w-12 h-auto" alt="Email">
                             </div>
                             <div>
@@ -57,8 +58,8 @@
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-6">
-                            <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-blue-200">
+                        <div class="info-item flex items-start gap-6">
+                            <div class="w-14 h-14 bg-[#0A81CB] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-[#0A81CB]/50">
                                 <img src="{{ asset('images/contact/call.png') }}" class="w-12 h-auto" alt="Phone">
                             </div>
                             <div>
@@ -75,17 +76,22 @@
                             <a href="#"><img src="{{ asset('images/contact/linkedinblue.png') }}" class="w-8 h-8" alt="LinkedIn"></a>
                             <a href="#"><img src="{{ asset('images/contact/xblue.png') }}" class="w-7 h-7 mt-0.5" alt="X"></a>
                             <a href="#"><img src="{{ asset('images/contact/facebookblue.png') }}" class="w-8 h-8" alt="Facebook"></a>
-                            <a href="#"><img src="{{ asset('images/socials/instagram.png') }}" class="w-8 h-8" alt="Instagram"></a>
+                            <a href="#"><img src="{{ asset('images/contact/instagramblue.png') }}" class="w-8 h-8" alt="Instagram"></a>
                         </div>
                     </div>
                 </div>
 
                 {{-- Right Side: Messaging Form --}}
-                <div class="w-full lg:w-[55%] p-8 lg:p-16 bg-white">
-                    <h2 class="text-[#334155] text-4xl font-bold mb-12">Send us a message</h2>
+                <div class="form-field w-full lg:w-[55%] p-8 lg:p-16 bg-[#FFFFFF]">
+                    <h2 class="text-[#334155] text-lg font-bold mb-12">Send us a message</h2>
                     
-                    <form action="#" method="POST" class="space-y-6">
+                    <form action="{{ route('contact.send') }}" method="POST" class="space-y-6">
                         @csrf
+                        @if(session('status'))
+                            <div class="p-4 bg-green-50 border border-green-200 text-green-700 rounded">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                         <div>
                             <input type="text" name="name" placeholder="Your Name" 
                                 class="w-full p-5 bg-[#F4F4F4] border-none rounded-lg focus:ring-2 focus:ring-[#0A81CB] outline-none transition-all placeholder:text-gray-400">
@@ -101,7 +107,7 @@
                         
                         <div class="pt-4">
                             <button type="submit" 
-                                class="w-full bg-[#0A81CB] text-white font-bold py-5 rounded-xl shadow-lg hover:bg-[#086ba8] transition-all transform active:scale-[0.98]">
+                                class="w-full bg-linear-to-r from-[#0A81CB] via-[#37A2E5] to-[#0A8ACB] hover:bg-linear-to-r hover:from-[#37A2E5] hover:via-[#0A81CB] hover:to-[#37A2E5] text-white font-bold py-5 rounded-xl shadow-lg  transition-all transform active:scale-[0.98]">
                                 Send
                             </button>
                         </div>
@@ -189,4 +195,53 @@
     <x-newsletter />    
     {{-- footer  --}}
     <x-footer />
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+                const contact = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".contact-card",
+                        start: "top 90%", 
+                        toggleActions: "play none none none"
+                    }
+                });
+
+                // 1. The Main Card: A subtle "float up" and fade
+                contact.from(".contact-card", {
+                    y: 100,
+                    opacity: 0,
+                    duration: 1.2,
+                    ease: "expo.out"
+                })
+
+                // 2. Left Side: Staggered reveal of contact info
+                .from(".info-item", {
+                    x: -30,
+                    opacity: 0,
+                    stagger: 0.2,
+                    duration: 0.8,
+                    ease: "power2.out"
+                }, "-=0.6")
+
+                // 3. Right Side: Staggered reveal of form fields
+                .from(".form-field", {
+                    y: 20,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.6,
+                    ease: "power2.out"
+                }, "-=0.8")
+
+                // 4. Social Media Icons: A quick "pop" in
+                .from(".contact-card .flex.gap-5 a", {
+                    scale: 0,
+                    opacity: 0,
+                    stagger: 0.1,
+                    duration: 0.5,
+                    ease: "back.out(2)"
+                }, "-=0.4");
+            });
+    </script>
 @endsection

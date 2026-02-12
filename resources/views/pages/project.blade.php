@@ -3,7 +3,7 @@
 @section('title', 'Projects')
 
 @section('content')
-    <div class="relative h-screen w-full flex items-center justify-center bg-black">
+    <div class="relative h-[70vh] w-full flex items-center justify-center bg-black">
         {{-- Background Image (Optional, based on your previous hero styles) --}}
         <div class="absolute inset-0">
             <div class="absolute inset-0 bg-black/50  z-10"></div>
@@ -12,18 +12,18 @@
 
         {{-- Centered Text Content --}}
         <div class="relative z-20 space-y-6 text-[#FFFFFF] text-center animate-fade-in-up px-6">
-            <h1 class="text-[2.25rem] md:text-[3.5rem] lg:text-[5.5rem] font-bold leading-tight max-w-[60rem] mx-auto">
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-bold leading-tight max-w-[60rem] mx-auto">
                 Project
             </h1>
         </div>
     </div>
 
     {{-- project --}}
-    <section class="py-20 bg-white">
+    <section class="project-section py-20 bg-white">
         <div class="container mx-auto px-6 max-w-7xl">
             
-            <div class="text-center mb-16">
-                <h2 class="text-[#0A81CB] text-4xl md:text-5xl font-bold mb-4">Projects</h2>
+            <div class="project-header text-center mb-16">
+                <h2 class="text-[#0A81CB] text-lg md:text-xl font-bold mb-4">Projects</h2>
                 <p class="text-gray-700 text-lg font-medium max-w-3xl mx-auto">
                     We Provide Customer Driven and Efficient ICT Management and Infrastructure Service.
                 </p>
@@ -45,7 +45,7 @@
                 @endphp
 
                 @foreach($projects as $project)
-                <div class="bg-[#F5F9FB] rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col group transition-all duration-300 hover:shadow-lg">
+                <div class="project-card bg-[#F5F9FB] rounded-2xl overflow-hidden shadow-md border border-gray-100 flex flex-col group transition-all duration-300 hover:shadow-lg">
                     
                     <div class="p-4">
                         <div class="h-64 md:h-72 overflow-hidden rounded-xl">
@@ -79,4 +79,75 @@
     {{-- footer  --}}
     <x-footer />
 
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            const blogTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".project-section",
+                    start: "top 75%", // Start slightly earlier for smoother feel
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            // Animate Header with smoother easing
+            blogTl.from(".project-header > *", {
+                y: 40,
+                opacity: 0,
+                duration: 0.5, 
+                stagger: 0.15,
+                ease: "power2.out" // Smoother ease curve
+            })
+            
+            // Animate Project Cards with butter-smooth entrance
+            .from(".project-card", {
+                y: 80, // Larger distance for more dramatic but smooth effect
+                opacity: 0,
+                scale: 0.9, // Slightly more scale difference
+                duration: 0.7, // Longer duration = smoother
+                stagger: {
+                    each: 0.1, // Slightly more time between cards
+                    from: "start",
+                    ease: "power2.inOut" // Smooth stagger timing
+                },
+                ease: "power2.out", // Best ease for smooth deceleration
+                clearProps: "all"
+            }, "-=0.6"); // More overlap with header animation
+
+            // Smoother Parallax Effect
+            gsap.utils.toArray(".project-card img").forEach(img => {
+                gsap.to(img, {
+                    scrollTrigger: {
+                        trigger: img,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 1, // Increased from 1.5 for smoother motion
+                    },
+                    y: -40, // Slightly more movement
+                    ease: "none"
+                });
+            });
+
+            // BONUS: Add subtle hover enhancement (optional)
+            gsap.utils.toArray(".project-card").forEach(card => {
+                card.addEventListener("mouseenter", () => {
+                    gsap.to(card, {
+                        y: -8,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                });
+                
+                card.addEventListener("mouseleave", () => {
+                    gsap.to(card, {
+                        y: 0,
+                        duration: 0.5,
+                        ease: "power2.inOut"
+                    });
+                });
+            });
+        });
+    </script>
 @endsection

@@ -2,30 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\FeedbackController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/about', function () {
-    return view('pages.about');
-})->name('about');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-Route::get('/services', function () {
-    return view('pages.services');
-})->name('services');
+Route::get('/services', [ServicesController::class, 'index'])->name('services');
 
-Route::get('/contact-us', function () {
-    return view('pages.contact');
-})->name('contact');
+Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact-us', [ContactController::class, 'send'])->name('contact.send');
 
-Route::get('/blog', function () {
-    return view('pages.blog');
-})->name('blog');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 
-Route::get('/project', function () {
-    return view('pages.project');
-})->name('project');
+Route::get('/project', [ProjectController::class, 'index'])->name('project');
 
-Route::get('/feedback', function () {
-    return view('pages.feedback');
-})->name('feedback');
+Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback');
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 

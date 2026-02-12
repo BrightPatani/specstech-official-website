@@ -9,9 +9,6 @@
                     <li><a href="#" class="hover:text-[#0A81CB] transition-colors">About</a></li>
                     <li><a href="#" class="hover:text-[#0A81CB] transition-colors">Services</a></li>
                     <li><a href="#" class="hover:text-[#0A81CB] transition-colors">Contact Us</a></li>
-                    <li><a href="#" class="hover:text-[#0A81CB] transition-colors">Blog</a></li>
-                    <li><a href="#" class="hover:text-[#0A81CB] transition-colors">Project</a></li>
-                    <li><a href="#" class="hover:text-[#0A81CB] transition-colors">Feedback</a></li>
                 </ul>
             </div>
 
@@ -77,4 +74,41 @@
             </p>
         </div>
     </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                    gsap.registerPlugin(ScrollTrigger);
+
+                const footerTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: "footer",
+                        start: "top 90%", // Starts slightly before the footer is fully in view
+                        toggleActions: "play none none none"
+                    }
+                });
+
+                footerTl
+                    // 1. Fade and slide the main columns up
+                    .from("footer .grid > div", {
+                        y: 40,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: "power2.out"
+                    })
+                    // 2. Animate the top border (growing from center)
+                    .from("footer .border-t", {
+                        scaleX: 0,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "expo.out"
+                    }, "-=0.4")
+                    // 3. Final fade for copyright text
+                    .from("footer .border-t p", {
+                        opacity: 0,
+                        y: 10,
+                        duration: 0.5
+                    }, "-=0.5");    
+            });
+        </script>
 </footer>

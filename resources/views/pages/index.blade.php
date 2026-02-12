@@ -102,11 +102,11 @@
                         x-transition:enter-start="opacity-0 translate-y-[1rem]"
                         x-transition:enter-end="opacity-100 translate-y-0"
                         class="space-y-6 text-white">
-                        <h1 class="text-[2.25rem] md:text-[3.5rem] lg:text-[4.5rem] font-bold leading-tight max-w-[50rem]" x-text="slide.title"></h1>
-                        <p class="text-[1rem] lg:text-[1.25rem] opacity-90 max-w-[40rem]" x-text="slide.description"></p>
-                        <button class="rounded-lg bg-[#0A81CB] px-8 py-4 font-semibold hover:scale-105 transition-transform">
+                        <h1 class="text-xl md:text-2xl lg:text-3xl font-bold leading-tight max-w-[50rem]" x-text="slide.title"></h1>
+                        <p class="text-sm md:text-base opacity-90 max-w-[40rem]" x-text="slide.description"></p>
+                        <a href="{{ route('services') }}" class="rounded-lg bg-linear-to-r from-[#0A81CB] via-[#37A2E5] to-[#0A8ACB] hover:bg-linear-to-r hover:from-[#37A2E5] hover:via-[#0A81CB] hover:to-[#37A2E5] px-8 py-4 font-semibold hover:scale-105 transition-transform inline-block">
                             Learn More
-                        </button>
+                        </a>
                     </div>
                 </template>
             </div>
@@ -133,12 +133,12 @@
 
     {{-- what we do --}}
   
-    <section class="bg-white py-[4rem] lg:py-[6rem]">
-        <div class="mx-auto max-w-[90%] lg:max-w-[90%]">
+    <section class="bg-white py-[1rem] lg:py-[1rem]">
+        <div class="mx-auto max-w-[80%] lg:max-w-[70%]">
             {{-- Main Heading --}}
             <div class="content-wrapper text-center">
-                <h2 class="main-heading text-[2.5rem] lg:text-[3.5rem] font-bold text-[#0A81CB] leading-tight">What We do</h2>
-                <p class="main-description mx-auto mt-[1rem] max-w-[50rem] text-[1rem] lg:text-[1.125rem] leading-relaxed text-gray-600">
+                <h2 class="main-heading text-xl lg:text-2xl font-bold text-[#0A81CB] leading-tight">What We do</h2>
+                <p class="main-description mx-auto mt-4 max-w-[50rem] text-md lg:text-base leading-relaxed text-gray-600">
                     We Provide Customer Driven and Efficient ICT Management and Infrastructure Service.
                 </p>
             </div>
@@ -157,16 +157,16 @@
                         </div>
 
                         {{-- Title --}}
-                        <h3 class="service-title mb-[1rem] text-[1.5rem] font-bold text-gray-800">{{ $service['title'] }}</h3>
+                        <h3 class="service-title mb-2 text-base font-bold text-gray-800">{{ $service['title'] }}</h3>
                         
                         {{-- Description --}}
-                        <p class="service-description mb-[2rem] text-[0.9375rem] leading-[1.6] text-gray-600">
+                        <p class="service-description mb-4 text-sm leading-6 text-gray-600">
                             {{ $service['desc'] }}
                         </p>
 
                         {{-- Learn More Button --}}
-                        <a href="{{ $service['link'] ?? '#' }}" 
-                        class="learn-more-btn mt-auto inline-flex items-center gap-[0.5rem] rounded-[0.5rem] bg-[#0A81CB] px-[1.5rem] py-[0.75rem] text-[0.875rem] font-semibold text-white transition-all duration-300 hover:bg-[#086ba8] hover:gap-[0.75rem]">
+                        <a href="{{ route('services') }}" 
+                        class="learn-more-btn mt-auto inline-flex items-center gap-[0.5rem] rounded-[0.5rem] bg-linear-to-r from-[#0A81CB] via-[#37A2E5] to-[#0A8ACB] hover:bg-linear-to-r hover:from-[#37A2E5] hover:via-[#0A81CB] hover:to-[#37A2E5] px-[1.5rem] py-[0.75rem] text-[0.875rem] font-semibold text-white transition-all duration-300 hover:bg-[#086ba8] hover:gap-[0.75rem]">
                             Learn More
                             <svg class="arrow-icon h-[1rem] w-[1rem] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
@@ -185,77 +185,77 @@
 
     {{-- critical success value --}}
     <section class="relative bg-linear-to-t from-[#F5F9FB] to-[#FFFFFF] py-16 px-6 lg:py-24 overflow-hidden">
-    <div class="absolute inset-0  pointer-events-none justify-end flex z-10">
-        <img src="images/globe.png" class="w-80 h-auto object-cover" alt="">
-    </div>
-
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-        
-        <div>
-        <h2 class="text-4xl lg:text-5xl font-bold text-[#0A81CB] mb-6">
-            Our Critical Success Value
-        </h2>
-        <p class="text-gray-600 text-lg mb-8 max-w-md">
-            We Provide Customer Driven and Efficient ICT Management and Infrastructure Service.
-        </p>
-        <a href="#" class="inline-flex items-center px-8 py-3 bg-[#0A81CB] text-white font-semibold rounded-lg hover:bg-blue-600 transition shadow-lg">
-            Learn More
-            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </a>
+        <div class="absolute inset-0  pointer-events-none justify-end flex z-10">
+            <img src="images/globe.png" class="w-80 h-auto object-cover" alt="">
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        
-            <div class="md:col-start-1 p-[2px] rounded-xl bg-linear-to-r from-[#0A81CB] to-[#B4E2FF] transition-transform duration-500 hover:-translate-y-2">
-                <div class="bg-white p-8 rounded-[10px] relative min-h-[220px] flex flex-col justify-center">
-                    <div class="absolute top-4 left-4">
-                        <img src="images/clip1.png" alt="">
+        <div class="max-w-[70%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            
+            <div>
+            <h2 class="text-xl lg:text-2xl font-bold text-[#0A81CB] mb-6">
+                Our Critical Success Value
+            </h2>
+            <p class="text-gray-600 text-sm mb-8 max-w-md">
+                We Provide Customer Driven and Efficient ICT Management and Infrastructure Service.
+            </p>
+            <a href="{{ route('services') }}" class="inline-flex items-center px-8 py-3 bg-linear-to-r from-[#0A81CB] via-[#37A2E5] to-[#0A8ACB] hover:bg-linear-to-r hover:from-[#37A2E5] hover:via-[#0A81CB] hover:to-[#37A2E5] text-white font-semibold rounded-lg transition shadow-lg">
+                Learn More
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+            
+                <div class="md:col-start-1 p-[2px] rounded-xl bg-linear-to-r from-[#0A81CB] to-[#B4E2FF] transition-transform duration-500 hover:-translate-y-2">
+                    <div class="bg-white p-8 rounded-[10px] relative min-h-[220px] flex flex-col justify-center">
+                        <div class="absolute top-4 left-4">
+                            <img src="images/clip1.png" alt="">
+                        </div>
+                        <p class="text-center font-medium text-gray-700 text-lg">Access The Right Market.</p>
+                        <div class="absolute bottom-4 right-4">
+                            <img src="images/checkmark.png" alt="">
+                        </div>
                     </div>
-                    <p class="text-center font-medium text-gray-700 text-lg">Access The Right Market.</p>
-                    <div class="absolute bottom-4 right-4">
-                        <img src="images/checkmark.png" alt="">
-                    </div>
+                </div>
+
+            <div class="md:row-start-0 bg-linear-to-r from-[#0A81CB] to-[#B4E2FF] p-[1px] rounded-xl transition-transform duration-500 hover:-translate-y-2 ">
+                <div class="bg-white p-8 rounded-xl border border-blue-100 shadow-sm relative min-h-[220px] flex flex-col justify-center">
+                <div class="absolute top-4 left-4 text-blue-500-2">
+                    <img src="images/clip2.png" alt="">
+                </div>
+                <p class="text-center font-small text-[#535353] leading-snug">
+                    Passionately Focus on Bringing Solutions to Our Client's Needs using the Best Technology, Infrastructure and Human Resources.
+                </p>
+                <div class="absolute bottom-4 right-4 rounded-full p-1">
+                    <img src="images/checkmark.png" alt="">
+                </div>
                 </div>
             </div>
 
-        <div class="md:row-start-0 bg-linear-to-r from-[#0A81CB] to-[#B4E2FF] p-[1px] rounded-xl transition-transform duration-500 hover:-translate-y-2 ">
-            <div class="bg-white p-8 rounded-xl border border-blue-100 shadow-sm relative min-h-[220px] flex flex-col justify-center">
-            <div class="absolute top-4 left-4 text-blue-500">
-                <img src="images/clip2.png" alt="">
+            <div class="md:row-start-1 md:translate-x-[150px] md:mb-4 bg-linear-to-r from-[#0A81CB] to-[#B4E2FF] p-[1px] rounded-xl transition-transform duration-500 hover:-translate-y-2 ">
+                <div class="bg-white p-8 rounded-xl border border-blue-100 shadow-sm relative min-h-[220px] flex flex-col justify-center">
+                <div class="absolute top-4 left-4 text-blue-500">
+                    <img src="images/clip3.png" alt="">
+                </div>
+                <p class="text-center font-medium text-[#535353] leading-snug">
+                    Partner with Leading Industry Players and Professionals
+                </p>
+                <div class="absolute bottom-4 right-4 rounded-full p-1">
+                    <img src="images/checkmark.png" alt="">
+                </div>
+                </div>
             </div>
-            <p class="text-center font-medium text-gray-700 leading-snug">
-                Passionately Focus on Bringing Solutions to Our Client's Needs using the Best Technology, Infrastructure and Human Resources.
-            </p>
-            <div class="absolute bottom-4 right-4 rounded-full p-1">
-                <img src="images/checkmark.png" alt="">
-            </div>
-            </div>
-        </div>
 
-        <div class="md:row-start-1 md:translate-x-[150px] md:mb-4 bg-linear-to-r from-[#0A81CB] to-[#B4E2FF] p-[1px] rounded-xl transition-transform duration-500 hover:-translate-y-2 ">
-            <div class="bg-white p-8 rounded-xl border border-blue-100 shadow-sm relative min-h-[220px] flex flex-col justify-center">
-            <div class="absolute top-4 left-4 text-blue-500">
-                <img src="images/clip3.png" alt="">
-            </div>
-            <p class="text-center font-medium text-gray-700">
-                Partner with Leading Industry Players and Professionals
-            </p>
-            <div class="absolute bottom-4 right-4 rounded-full p-1">
-                <img src="images/checkmark.png" alt="">
-            </div>
             </div>
         </div>
-
-        </div>
-    </div>
     </section>
 
 
     {{-- core values --}}
     <section class="py-20 bg-white" id="core-values">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl lg:text-5xl font-bold text-[#0A81CB] mb-4">Our Core Values</h2>
-            <p class="text-gray-600 mb-16 max-w-2xl mx-auto">
+            <h2 class="text-xl lg:text-2xl font-bold text-[#0A81CB] mb-4">Our Core Values</h2>
+            <p class="text-gray-600 mb-16 max-w-2xl mx-auto text-sm">
                 We Provide Customer Driven and Efficient ICT
             </p>
 
@@ -277,7 +277,7 @@
                             <circle class="progress-ring" cx="50%" cy="50%" r="45%" stroke="#22c55e" stroke-width="8" 
                                     fill="transparent" stroke-dasharray="300" stroke-dashoffset="300" stroke-linecap="round" />
                         </svg>
-                        <span class="text-2xl lg:text-3xl font-bold text-gray-800">
+                        <span class="text-lg lg:text-xl font-bold text-gray-800">
                             <span class="count" data-target="100">0</span>%
                         </span>
                     </div>
@@ -304,21 +304,21 @@
 
                     <div class="w-full lg:w-1/2 p-8 lg:p-16">
                         <div class="space-y-4">
-                            <h4 class="text-[#0A81CB] text-xl lg:text-3xl font-bold tracking-tight">
+                            <h4 class="text-[#0A81CB] text-sm lg:text-base font-bold tracking-tight">
                                 Consult Our Expertise
                             </h4>
-                            <h2 class="text-[#454452] text-2xl lg:text-4xl font-extrabold leading-tight">
+                            <h2 class="text-[#454452] text-lg lg:text-xl font-extrabold leading-tight">
                                 We are Solution Driven
                             </h2>
                             
                             <div class="pt-4">
-                                <p class="text-gray-600 text-base lg:text-lg leading-relaxed">
+                                <p class="text-gray-600 text-xs lg:text-sm leading-relaxed">
                                     Today Businesses are Driven by ICT Solutions, Spectech Africa is one of Nigeria's solution provider with the Primary Goal of Providing Integrated ICT Solutions that Drive Business Operations with the Implementation.
                                 </p>
                             </div>
 
                             <div class="pt-8">
-                                <a href="#" class="inline-flex items-center gap-2 bg-[#0A81CB] text-white px-8 py-3.5 rounded-lg font-bold transition-all duration-300 hover:bg-[#086ba8] hover:gap-4 shadow-lg shadow-blue-200">
+                                <a href="{{ route('services') }}" class="inline-flex items-center gap-2 bg-linear-to-r from-[#0A81CB] via-[#37A2E5] to-[#0A8ACB] hover:bg-linear-to-r hover:from-[#37A2E5] hover:via-[#0A81CB] hover:to-[#37A2E5] text-white px-8 py-3.5 rounded-lg font-bold transition-all duration-300  shadow-lg shadow-blue-200">
                                     Learn More
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -338,11 +338,11 @@
     <section class="bg-[#FFFFFF] py-8 lg:py-24" id="projects-section">
         <div class="container mx-auto px-6 lg:px-8">
             
-            <div class="text-center mb-16 project-header">
-                <h2 class="text-[#0A81CB] text-[2.5rem] lg:text-[3.5rem] font-bold leading-tight">
+            <div class="text-center mb-8 project-header">
+                <h2 class="text-[#0A81CB] text-lg lg:text-xl font-bold leading-tight">
                     Projects
                 </h2>
-                <p class="text-gray-700 text-lg mt-4 max-w-2xl mx-auto">
+                <p class="text-gray-700 text-sm mt-4 max-w-2xl mx-auto">
                     We Provide Customer Driven and Efficient ICT Management and Infrastructure Service.
                 </p>
             </div>
@@ -367,7 +367,7 @@
                     </div>
 
                     <div class="py-6 px-2 flex items-center justify-between">
-                        <h3 class="text-gray-800 text-[1.1rem] font-bold leading-snug max-w-[85%]">
+                        <h3 class="text-gray-800 text-xs font-bold leading-snug max-w-[85%]">
                             {{ $project['title'] }}
                         </h3>
                         <div class="text-gray-400 group-hover:text-[#0A81CB] transition-colors">
@@ -396,10 +396,10 @@
         <div class="container mx-auto px-6 lg:px-8">
             
             <div class="text-center mb-16 blog-header">
-                <h2 class="text-[#0A81CB] text-[2.5rem] lg:text-[3.5rem] font-bold leading-tight">
+                <h2 class="text-[#0A81CB] text-lg lg:text-xl font-bold leading-tight">
                     Recent Blog Post
                 </h2>
-                <p class="text-gray-800 text-lg mt-4 font-medium">
+                <p class="text-gray-800 text-xs mt-4 font-medium">
                     Gain Value Reading Through Our Tech Blog
                 </p>
             </div>
@@ -437,10 +437,10 @@
                     </div>
 
                     <div class="py-6 px-2">
-                        <h3 class="text-[#000000] text-[2rem] font-bold leading-tight mb-4">
+                        <h3 class="text-[#000000] text-xs font-bold leading-tight mb-4">
                             {{ $post['title'] }}
                         </h3>
-                        <p class="text-gray-500 text-[1.3rem] leading-relaxed mb-6">
+                        <p class="text-gray-500 text-xs leading-relaxed mb-6">
                             {{ $post['desc'] }}
                         </p>
                         
@@ -484,13 +484,13 @@
         gsap.from(".service-icon", {
             scrollTrigger: {
                 trigger: ".services-grid",
-                start: "top 80%", // Starts when the grid is 80% down the viewport
+                start: "top 80%",
             },
             scale: 0,
             opacity: 0,
             duration: 1,
             ease: "back.out(1.7)",
-            stagger: 0.2 // Each icon appears 0.2s after the previous one
+            stagger: 0.2 
         });
 
         
@@ -534,7 +534,7 @@
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: "#core-values",
-                        start: "top 70%", // Starts when the section is 80% visible
+                        start: "top 70%", 
                         toggleActions: "play none none none"
                     }
                 });
@@ -543,12 +543,11 @@
                 tl.to(counter, {
                     innerText: target,
                     duration: 2,
-                    snap: { innerText: 1 }, // Ensures whole numbers
+                    snap: { innerText: 1 }, 
                     ease: "power2.out"
                 }, 0);
 
                 // 2. Animate the SVG Ring stroke-dashoffset
-                // Circumference is approx 283 (based on r=45%)
                 tl.to(ring, {
                     strokeDashoffset: 0,
                     duration: 2,
@@ -575,7 +574,7 @@
             ease: "power3.out"
         })
 
-        // Animate Cards with a staggered "wave" reveal
+        // Animated Cards with a stagger
         .from(".project-card", {
             y: 50,
             opacity: 100,
@@ -592,7 +591,5 @@
             ease: "power2.out"
         }, "-=0.2");
     });
-
-
 </script>
 @endsection

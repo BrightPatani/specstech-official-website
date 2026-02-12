@@ -32,7 +32,7 @@
                     >
                         @php
                             // List your partner logos here (matching image_79c6df.png)
-                            $logos = ['specstech.png', 'zallasoft.png', 'elabsafrica.png', 'elabsafrica.png', 'jtech.png'];
+                            $logos = ['specstech.png', 'zallasoft.png', 'elabsafrica.png', 'jtech.png'];
                             // Duplicate for seamless looping
                             $displayLogos = array_merge($logos, $logos);
                         @endphp

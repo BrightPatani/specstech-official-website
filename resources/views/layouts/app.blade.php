@@ -18,15 +18,15 @@
             <script src="{{ asset('js/app.js') }}" defer></script>  
         @endif
     </head>
-    <body class="max-w-full mx-auto">
-        @include('components.navbar')
+    <body class="w-full mx-auto overflow-x-hidden">
+            @include('components.navbar')
 
-       <main>
-            @yield('content')
-       </main>
+            <main">
+                    @yield('content')
+            </main>
 
-        {{-- @include('components.footer') --}}
+            {{-- @include('components.footer') --}}
 
-        @stack('scripts')
+            @stack('scripts')
     </body>
 </html>

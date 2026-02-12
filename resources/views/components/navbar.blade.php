@@ -1,38 +1,53 @@
-<div x-data="{ isMenuOpen: false }" class="relative">
+<div x-data="{ 
+        isMenuOpen: false, 
+        isScrolled: false 
+    }" 
+    @scroll.window="isScrolled = (window.pageYOffset > 20)"
+    class="relative">
     
-    <nav class="absolute top-0 inset-x-0 z-50 flex max-w-[90%] mx-auto items-center justify-between px-8 py-6 lg:px-12">
+    <nav :class="{ 
+            'bg-white/90 backdrop-blur-md shadow-md py-3': isScrolled, 
+            'bg-transparent py-6': !isScrolled 
+        }" 
+        class="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-8 lg:px-12 transition-all duration-300 w-full">
+        
         <div class="flex items-center">
-            <img src="{{ asset('images/logo.png') }}" alt="Specstech Africa" class="h-40 w-auto lg:h-12">
+            {{-- Logo scales down slightly when scrolled for a sleeker look --}}
+            <img src="{{ asset('images/logo.png') }}" 
+                 alt="Specstech Africa" 
+                 :class="isScrolled ? 'h-12 lg:h-16' : 'h-16 lg:h-24'"
+                 class="w-auto transition-all duration-300">
         </div>
 
         {{-- Desktop Menu --}}
         <div class="hidden space-x-8 lg:flex">
-            <a href="{{ route('home') }}" class="text-sm font-semibold tracking-wider text-[#FFFFFF] hover:text-blue-400 {{ request()->routeIs('home') ? 'bg-blue-500 px-4 py-1 rounded' : '' }}">
-                HOME
-            </a>
-            <a href="{{ route('about') }}" class="text-sm font-semibold tracking-wider text-[#FFFFFF] hover:text-blue-400 {{ request()->routeIs('about') ? 'bg-blue-500 px-4 py-1 rounded' : '' }}">
-                ABOUT
-            </a>
-            <a href="{{ route('services') }}" class="text-sm font-semibold tracking-wider text-[#FFFFFF] hover:text-blue-400 {{ request()->routeIs('services') ? 'bg-blue-500 px-4 py-1 rounded' : '' }}">
-                SERVICES
-            </a>
-            <a href="{{ route('contact') }}" class="text-sm font-semibold tracking-wider text-[#FFFFFF] hover:text-blue-400 {{ request()->routeIs('contact') ? 'bg-blue-500 px-4 py-1 rounded' : '' }}">
-                CONTACT US
-            </a>
-            <a href="{{ route('blog') }}" class="text-sm font-semibold tracking-wider text-[#FFFFFF] hover:text-blue-400 {{ request()->routeIs('blog') ? 'bg-blue-500 px-4 py-1 rounded' : '' }}">
-                BLOG
-            </a>
-            <a href="{{ route('project') }}" class="text-sm font-semibold tracking-wider text-[#FFFFFF] hover:text-blue-400 {{ request()->routeIs('project') ? 'bg-blue-500 px-4 py-1 rounded' : '' }}">
-                PROJECT
-            </a>
-            <a href="{{ route('feedback') }}" class="text-sm font-semibold tracking-wider text-[#FFFFFF] hover:text-blue-400 {{ request()->routeIs('feedback') ? 'bg-blue-500 px-4 py-1 rounded' : '' }}">
-                FEEDBACK
-            </a>
+            @php
+                $navItems = [
+                    ['route' => 'home', 'label' => 'HOME'],
+                    ['route' => 'about', 'label' => 'ABOUT'],
+                    ['route' => 'services', 'label' => 'SERVICES'],
+                    ['route' => 'contact', 'label' => 'CONTACT US'],
+                    ['route' => 'blog', 'label' => 'BLOG'],
+                    ['route' => 'project', 'label' => 'PROJECT'],
+                    ['route' => 'feedback', 'label' => 'FEEDBACK'],
+                ];
+            @endphp
+
+            @foreach($navItems as $item)
+                <a href="{{ route($item['route']) }}" 
+                   :class="isScrolled ? 'text-gray-800 hover:text-[#0A81CB]' : 'text-[#FFFFFF] hover:text-[#0A81CB]'"
+                   class="text-sm font-semibold tracking-wider transition-colors {{ request()->routeIs($item['route']) ? 'bg-linear-to-r from-[#0A81CB] via-[#37A2E5] to-[#0A8ACB] !text-white px-4 py-1 rounded' : '' }}">
+                    {{ $item['label'] }}
+                </a>
+            @endforeach
         </div>
 
         {{-- Mobile Hamburger Button --}}
-        <button @click="isMenuOpen = true" class="block lg:hidden outline-none focus:outline-none">
-            <img src="{{ asset('images/menu.png') }}" class="h-10 w-10" alt="Open Menu">
+        <button @click="isMenuOpen = !isMenuOpen" class="block lg:hidden outline-none focus:outline-none">
+            <img src="{{ asset('images/menu.png') }}" 
+                 :class="isScrolled ? 'brightness-50' : 'brightness-100'"
+                 class="h-10 w-10 transition-all duration-300" 
+                 alt="Open Menu">
         </button>
     </nav>
 
@@ -52,8 +67,9 @@
         {{-- Close Button --}}
         <div class="flex justify-end mb-8">
             <button @click="isMenuOpen = false" class="outline-none focus:outline-none">
-                {{-- Using a standard 'X' icon or your menu.png --}}
-                <img src="{{ asset('images/menu.png') }}" alt="Close" class="w-8 h-8 rotate-45">
+                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
             </button>
         </div>
 
@@ -73,7 +89,7 @@
             @foreach($navItems as $item)
                 <a href="{{ route($item['route']) }}" 
                    @click="isMenuOpen = false"
-                   class="w-full text-center py-3 px-4 text-lg font-medium transition-colors rounded-lg
+                   class="w-full text-center py-3 px-4 text-sm font-medium transition-colors rounded-lg
                    {{ request()->routeIs($item['route']) ? 'bg-[#0A81CB] text-white' : 'text-black hover:text-[#0A81CB] hover:bg-blue-50' }}">
                     {{ $item['label'] }}
                 </a>
