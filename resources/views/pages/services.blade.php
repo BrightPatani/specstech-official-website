@@ -185,7 +185,7 @@
                 </div>
 
             <div class="mt-12 flex justify-end">
-                <a href="#" class="inline-flex items-center gap-2 text-[#0A81CB] text-xl font-bold hover:underline group">
+                <a href="#" class="inline-flex items-center gap-2 text-[#0A81CB] font-bold hover:underline group">
                     See more
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />

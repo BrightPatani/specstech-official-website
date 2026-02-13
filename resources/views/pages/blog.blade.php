@@ -28,43 +28,42 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-                @php
-                    $posts = [
-                        ['img' => 'blog1.png', 'title' => 'Why You Should Swap Passord for Passphrase.'],
-                        ['img' => 'blog2.png', 'title' => 'Why You Should Swap Passord for Passphrase.'],
-                        ['img' => 'blog3.png', 'title' => 'Why You Should Swap Passord for Passphrase.'],
-                        ['img' => 'blog4.png', 'title' => 'Why You Should Swap Passord for Passphrase.'],
-                        ['img' => 'blog5.png', 'title' => 'Why You Should Swap Passord for Passphrase.'],
-                        ['img' => 'blog1.png', 'title' => 'Why You Should Swap Passord for Passphrase.'],
-                    ];
-                @endphp
-
-                @foreach($posts as $post)
-                <div class="blog-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col group">
+                @forelse($blogs as $blog)
+                <a href="{{ route('blog.show', $blog->slug) }}" class="blog-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col group no-underline">
                     <div class="h-40 overflow-hidden">
-                        <img src="{{ asset('images/blog/' . $post['img']) }}" 
+                        <img src="{{ asset('images/blog/' . ($blog->image ?? 'blog1.png')) }}" 
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                            alt="Blog post thumbnail">
+                            alt="{{ $blog->title }}">
                     </div>
 
                     <div class="p-4 flex-grow">
                         <h3 class="text-[#1e293b] text-xl font-bold leading-tight mb-4 group-hover:text-[#0A81CB] transition-colors">
-                            {{ $post['title'] }}
+                            {{ $blog->title }}
                         </h3>
                         <p class="text-gray-500 text-sm leading-relaxed mb-8">
-                            Why you should change your router default password.
+                            {{ $blog->excerpt }}
                         </p>
                         
-                        <a href="#" class="inline-flex items-center text-[#0A81CB] font-bold text-sm hover:translate-x-1 transition-transform">
+                        <span class="inline-flex items-center text-[#0A81CB] font-bold text-sm hover:translate-x-1 transition-transform">
                             Read more 
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
-                        </a>
+                        </span>
                     </div>
+                </a>
+                @empty
+                <div class="col-span-full text-center py-12">
+                    <p class="text-gray-500 text-lg">No blog posts available yet.</p>
                 </div>
-                @endforeach
+                @endforelse
             </div>
+
+            @if($blogs->hasPages())
+            <div class="flex justify-center mt-12">
+                {{ $blogs->links() }}
+            </div>
+            @endif
         </div>
     </section>
 

@@ -17,19 +17,19 @@
                 'title' => 'ICT Management',
                 'icon' => 'ictmanagement.png',
                 'desc' => 'Our ICT Management Services is Focused on Providing Customer Driven and Efficient ICT Management.',
-                'link' => '#'
+                'link' => 'ictmgmt'
             ],
             [
                 'title' => 'Solutions',
                 'icon' => 'solutions.png',
                 'desc' => 'Today Businesses are Driven by ICT Solutions. Specstech Africa is one of Nigeria’s Solution',
-                'link' => '#'
+                'link' => 'solutions'
             ],
             [
                 'title' => 'Knowledge Transfer',
                 'icon' => 'knowledge.png',
                 'desc' => 'Today Businesses are Driven by ICT Solutions. Specstech Africa is one of Nigeria’s Solution.',
-                'link' => '#'
+                'link' => 'knowledge'
             ],
         ];
     @endphp
@@ -132,7 +132,6 @@
         <x-partner />
 
     {{-- what we do --}}
-  
     <section class="bg-[#FFFFFF] py-[1rem] lg:py-[1rem]">
         <div class="mx-auto max-w-[80%] lg:max-w-[70%]">
             {{-- Main Heading --}}
@@ -165,7 +164,7 @@
                         </p>
 
                         {{-- Learn More Button --}}
-                        <a href="{{ route('services') }}" 
+                        <a href="{{ route($service['link']) }}" 
                         class="learn-more-btn mt-auto inline-flex items-center gap-[0.5rem] rounded-[0.5rem] bg-linear-to-r from-[#0A81CB] via-[#37A2E5] to-[#0A8ACB] hover:bg-linear-to-r hover:from-[#37A2E5] hover:via-[#0A81CB] hover:to-[#37A2E5] px-[1.5rem] py-[0.75rem] text-[0.875rem] font-semibold text-[#FFFFFF] transition-all duration-300 hover:bg-[#086ba8] hover:gap-[0.75rem]">
                             Learn More
                             <svg class="arrow-icon h-[1rem] w-[1rem] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
@@ -211,7 +210,7 @@
                         <div class="absolute top-4 left-4">
                             <img src="images/clip1.png" alt="">
                         </div>
-                        <p class="text-center font-medium text-gray-700 text-lg">Access The Right Market.</p>
+                        <p class="text-center font-medium text-[#888888] text-lg">Access The Right Market.</p>
                         <div class="absolute bottom-4 right-4">
                             <img src="images/checkmark.png" alt="">
                         </div>
@@ -281,7 +280,7 @@
                             <span class="count" data-target="100">0</span>%
                         </span>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-700">{{ $value['name'] }}</h3>
+                    <h3 class="text-xl font-semibold text-[#888888]">{{ $value['name'] }}</h3>
                 </div>
                 @endforeach
             </div>
@@ -342,7 +341,7 @@
                 <h2 class="text-[#0A81CB] text-lg lg:text-xl font-bold leading-tight">
                     Projects
                 </h2>
-                <p class="text-gray-700 text-sm mt-4 max-w-2xl mx-auto">
+                <p class="text-[#888888] text-sm mt-4 max-w-2xl mx-auto">
                     We Provide Customer Driven and Efficient ICT Management and Infrastructure Service.
                 </p>
             </div>
@@ -391,80 +390,7 @@
         </div>
     </section>
 
-    {{-- recent post --}}
-    <section class="bg-[#FFFFFF] py-8 lg:py-24 overflow-hidden" id="blog-section">
-        <div class="container mx-auto px-6 lg:px-8">
-            
-            <div class="text-center mb-16 blog-header">
-                <h2 class="text-[#0A81CB] text-lg lg:text-xl font-bold leading-tight">
-                    Recent Blog Post
-                </h2>
-                <p class="text-gray-800 text-xs mt-4 font-medium">
-                    Gain Value Reading Through Our Tech Blog
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                @php
-                    // Array to simulate dynamic data
-                    $posts = [
-                        [
-                            'title' => 'Why You Should Swap Passord for Passphrase.',
-                            'desc' => 'Why you should change your router default password.',
-                            'img' => 'blog1.png'
-                        ],
-                        [
-                            'title' => 'Why You Should Swap Passord for Passphrase.',
-                            'desc' => 'Why you should change your router default password.',
-                            'img' => 'blog2.png'
-                        ],
-                        [
-                            'title' => 'Why You Should Swap Passord for Passphrase.',
-                            'desc' => 'Why you should change your router default password.',
-                            'img' => 'blog3.png'
-                        ],
-                    ];
-                @endphp
-
-                @foreach($posts as $post)
-                <div class="blog-card group bg-[#FFFFFF] rounded-2xl h-auto p-4 shadow-[0_10px_50px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_20px_70px_rgba(0,0,0,0.12)] hover:-translate-y-2 border border-gray-50">
-                    <div class="overflow-hidden rounded-xl h-[350px]">
-                        <img 
-                            src="{{ asset('images/blog/' . $post['img']) }}" 
-                            alt="Blog Post" 
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        >
-                    </div>
-
-                    <div class="py-6 px-2">
-                        <h3 class="text-[#000000] text-xs font-bold leading-tight mb-4">
-                            {{ $post['title'] }}
-                        </h3>
-                        <p class="text-gray-500 text-xs leading-relaxed mb-6">
-                            {{ $post['desc'] }}
-                        </p>
-                        
-                        <a href="#" class="inline-flex items-center text-[#0A81CB] text-[1rem] font-bold transition-all hover:gap-2">
-                            Read more
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-
-            <div class="text-right blog-footer">
-                <a href="#" class="inline-flex items-center text-[#0A81CB] font-bold text-lg hover:gap-2 transition-all">
-                    See more
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
+    <x-recent-posts :blogs="$blogs" />
 
     {{-- partners --}}
     <x-partner />
